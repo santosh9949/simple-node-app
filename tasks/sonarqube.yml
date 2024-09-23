@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  run:
+    desc: "Run SonarQube analysis"
+    cmds:
+      - sonar-scanner -Dsonar.login=${{SONAR_TOKEN}}

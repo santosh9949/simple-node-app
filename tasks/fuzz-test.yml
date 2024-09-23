@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  run:
+    desc: "Run fuzz testing"
+    cmds:
+      - node fuzz-testing-script.js

@@ -1,0 +1,37 @@
+version: '3'
+
+tasks:
+  sonarqube:
+    desc: "Run SonarQube analysis"
+    cmds:
+      - sonar-scanner -Dsonar.projectKey=my-nodejs-app -Dsonar.sources=./ -Dsonar.host.url=http://localhost:9000 -Dsonar.login=your_sonarqube_token
+
+  fuzz-test:
+    desc: "Run fuzz testing"
+    cmds:
+      - node tasks/fuzz-testing-script.js
+
+  trivy-scan:
+    desc: "Scan container images with Trivy"
+    cmds:
+      - trivy image your-docker-image:latest
+
+  zap-scan:
+    desc: "Run ZAP security scan"
+    cmds:
+      - zap.sh -cmd -quickurl http://localhost:3000 -quickout zap-report.html
+
+  postman-test:
+    desc: "Run Postman API tests"
+    cmds:
+      - newman run tasks/your-collection.json
+
+  lint:
+    desc: "Run linting"
+    cmds:
+      - eslint ./ --fix
+
+  renovate:
+    desc: "Run Renovate to update dependencies"
+    cmds:
+      - renovate

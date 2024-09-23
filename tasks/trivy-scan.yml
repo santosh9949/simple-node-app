@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  run:
+    desc: "Scan container images with Trivy"
+    cmds:
+      - trivy image --severity HIGH,CRITICAL your-image:tag  
